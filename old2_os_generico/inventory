@@ -1,0 +1,5 @@
+192.168.2.196 paqueteapache=apache2 paquetephp=libapache2-mod-php
+192.168.2.200 paqueteapache=apache2 paquetephp=libapache2-mod-php
+192.168.2.227 paqueteapache=apache2 paquetephp=libapache2-mod-php
+192.168.2.219 paqueteapache=httpd paquetephp=php
+

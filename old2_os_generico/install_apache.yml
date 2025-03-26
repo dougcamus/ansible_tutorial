@@ -1,0 +1,15 @@
+---
+
+- hosts: all
+  become: true
+  tasks: 
+
+  - name: instala paquete apache y php
+    package: 
+      name: 
+        - "{{ paqueteapache }}"
+        - "{{ paquetephp }}"
+      state: latest
+      update_cache: yes
+
+
