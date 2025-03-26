@@ -4,12 +4,21 @@
   become: true
   tasks: 
 
-  - name: instala paquete apache y php
-    package: 
+  - name: instala apache y php para servidores Ubuntu
+    apt: 
       name: 
-        - "{{ paqueteapache }}"
-        - "{{ paquetephp }}"
+        - apache2
+        - libapache2-mod-php
       state: latest
       update_cache: yes
+    when: ansible_distribution == "Ubuntu"
 
+  - name: instala apache y php para servidores Rocky
+    dnf:
+      name:
+        - httpd
+        - php
+      state: latest
+      update_cache: yes
+    when: ansible_distribution == "Rocky"
 
