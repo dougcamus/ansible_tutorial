@@ -1,0 +1,21 @@
+---
+
+- hosts: all
+  become: true
+  tasks: 
+
+  - name: update indice de repo
+    apt:
+      update_cache: yes
+
+  - name: remover paquete apache2
+    apt: 
+      name: apache2
+      state: absent
+      
+  - name: sacar soporte php a apache
+    apt:
+      name: libapache2-mod-php
+      state: absent
+
+
