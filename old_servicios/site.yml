@@ -4,30 +4,19 @@
   become: true
   pre_tasks:
 
-  - name: actualiza repo cache (Rocky)
+  - name: install updates (Rocky)
     tags: always
     dnf:
+      update_only: yes
       update_cache: yes
-    changed_when: false
     when: ansible_distribution == "Rocky"
 
-  - name: actualiza repo cache (Ubuntu)
+  - name: install updates (Ubuntu)
     tags: always
     apt:
+      upgrade: dist
       update_cache: yes
-    changed_when: false
     when: ansible_distribution == "Ubuntu"
-
-- hosts: all
-  become: true
-  tasks:
-  
-  - name: agregar key ssh para simone
-    tags: always
-    authorized_key:
-      user: simone
-      key: "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIOO9KvcHJSlughp1zUUozbQxk1GvLjMBke4YxAyJUPaS para ansible"
- 
 
 - hosts: workstations
   become: true
